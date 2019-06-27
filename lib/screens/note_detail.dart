@@ -195,11 +195,12 @@ class NoteDetailState extends State<NoteDetail> {
   }
 
   void _save() async {
-
     moveToLastScreen();
-
-    note.date = DateFormat.yMMMd().format(DateTime.now());
-
+    print(DateFormat.yMMMd().format(DateTime.now()).toString());
+    note.date = DateFormat.yMMMd().format(DateTime.now()).toString();
+    updateTitle();
+    updateDescription();
+    print("NOTE: ${note.toMap()}");
     int result;
     if(note.id != null) {
       result = await helper.updatetNote(note);
@@ -212,6 +213,7 @@ class NoteDetailState extends State<NoteDetail> {
     }else {
       _showAlertDialog('Status', 'Problem Saving Note');
     }
+
   }
 
   void _delete() async {
