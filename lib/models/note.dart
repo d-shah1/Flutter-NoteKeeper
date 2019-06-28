@@ -18,7 +18,7 @@ class Note {
 
   int get priority => _priority;
 
-  String get date => null;
+  String get date => _date;
 
   set title(String newTitle) {
     if(newTitle.length <= 255) {
